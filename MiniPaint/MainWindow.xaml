@@ -1,0 +1,48 @@
+﻿<Window x:Class="MiniPaint.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MiniPaint"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+       Title="Mini Paint"  SizeToContent="WidthAndHeight" Topmost="False" WindowState="Normal" MinHeight="500" MinWidth="500" Icon="Pencil.ico">
+    <DockPanel>
+        <ToolBar Name="MyToolbar" DockPanel.Dock="Top" Height="50" Background="Black">
+            <RadioButton  Name="LineButton" Background="White" BorderBrush="#000000" Content="╱" Height="30" Width="30" GroupName="ShapeGroup" Click="LineButton_Click" IsChecked="True"/>
+            <RadioButton Name="EllipseButton" Background="White" BorderBrush="#000000" Content="◯" Height="30" Width="30" GroupName="ShapeGroup" Click="EllipseButton_Click"/>
+            <RadioButton Name="RectangleButton" Background="White" BorderBrush="#000000" Content="◼" Height="30" Width="30" GroupName="ShapeGroup" Click="RectangleButton_Click"/>
+            <Grid>
+                <Grid.ColumnDefinitions  >
+                    <ColumnDefinition Width="0*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Button BorderBrush="#000000"  Margin="0,7,0,0.4">
+                    <TextBox Height="11" TextAlignment="Center"  BorderBrush="#000000" Name="textBoxR" PreviewTextInput="NumberValidationTextBox"  Margin="0" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="20" TextChanged="textBoxR_TextChanged" Text="0" FontSize="8"/>
+                </Button>
+                <Button BorderBrush="#000000" Grid.Column="1" Margin="0,7,0,0.4">
+                    <TextBox Height="11" TextAlignment="Center" BorderBrush="#000000" Name="textBoxG" PreviewTextInput="NumberValidationTextBox"  Margin="0" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="20" TextChanged="textBoxG_TextChanged" Text="0"  FontSize="8"/>
+                </Button>
+                <Button BorderBrush="#000000" Grid.Column="2" Margin="0,7,0,0.4">
+                    <TextBox Height="11" TextAlignment="Center" BorderBrush="#000000" Name="textBoxB" PreviewTextInput="NumberValidationTextBox"  Margin="0" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="20" TextChanged="textBoxB_TextChanged" Text="0" FontSize="8"/>
+                </Button>
+                <Button BorderBrush="#000000" Margin="0,22,0,7.8" Grid.RowSpan="2" FontSize="10">R</Button>
+                <Button BorderBrush="#000000"  Grid.Column="1" Margin="0,22,0,7.8" Grid.RowSpan="2" FontSize="10">G</Button>
+                <Button BorderBrush="#000000" Grid.Column="2" Margin="0,22,0,7.8" Grid.RowSpan="2" FontSize="10">B</Button>
+            </Grid>
+            <Button Name="btnStroke" Background="White"  Content="" Height="30
+                    " VerticalAlignment="Top" Width="27"  Click="Stroke_Colour_Click" Margin="0,7,0,0"  BorderBrush="#000000" />
+            <Button Content="I" Height="30" VerticalAlignment="Top" Background="White" Width="9" Click="btnStrokeSize1" Margin="0,7,0,0" BorderBrush="#000000" FontSize="6"/>
+            <Button Content="I" Height="30" VerticalAlignment="Top" Background="White" Width="8" Margin="0,7,0,0" IsCancel="True" FontSize="9" IsDefault="True" Click="btnStrokeSize2" BorderBrush="#000000" />
+            <Button Content="I" Height="30" VerticalAlignment="Top" Background="White" Width="9" Click="btnStrokeSize3" BorderBrush="#000000" Margin="0,7,0,0" FontSize="15" />
+            <Button BorderBrush="#000000" Content="I" Height="30" Background="White" VerticalAlignment="Top" Width="9" FontSize="16" IsDefault="True"  Click="btnStrokeSize4" Margin="0,7,0,0" />
+        </ToolBar>
+        <Canvas Name="MyCanvas" Background="White" MouseDown="MyCanvas_MouseDown" MouseUp="MyCanvas_MouseUp" MouseMove="MyCanvas_MouseMove" Margin="0,0.4,0,10.2">
+        </Canvas>
+    </DockPanel>
+</Window>
